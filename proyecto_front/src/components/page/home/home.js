@@ -1,11 +1,12 @@
 import React from "react";
+import "./home.css";
 
-export default class team extends React.Component {
+export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
-    return <div></div>;
+    return <h1>estamos en HOME</h1>;
   }
 }

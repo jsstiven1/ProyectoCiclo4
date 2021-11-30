@@ -10,19 +10,30 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import "./navbar.css";
+import logoMenu from "../img/Logo.png";
+import Cookies from "universal-cookie/es6";
+
+const cookies = new Cookies();
 
 export default class menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
+  logout() {
+    cookies.remove("_s");
+    window.location.reload();
+  }
+
   render() {
     return (
-      <Navbar fixed="top" id="navbar" bg="primary" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Repostería Grupo 27</Navbar.Brand>
+      <Navbar fixed="top" id="navbar" variant="dark">
+        <Container variant="dark">
+          <img src={logoMenu} className="logoMenu" />
+          <Navbar.Brand href="productos">Humsti</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Brand href="#home">inicio</Navbar.Brand>
+          <Navbar.Brand href="productos">inicio</Navbar.Brand>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               {/*<Nav.Link href="#home">Home</Nav.Link>
@@ -36,7 +47,9 @@ export default class menu extends React.Component {
                 <Row>#USUARIO#</Row>
               </Dropdown.Header>
               <Dropdown.Divider />
-              <Dropdown.Item href="#/action-1">Cerrar sesión</Dropdown.Item>
+              <Dropdown.Item onClick={() => this.logout()}>
+                Cerrar sesión
+              </Dropdown.Item>
               {/* <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
               <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>*/}
             </DropdownButton>

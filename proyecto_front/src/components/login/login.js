@@ -1,26 +1,63 @@
 import React from "react";
+import axios from "axios";
 import { Form, Button, Container, Row, Col, Image } from "react-bootstrap";
+import { APIHOST as host } from "../../app.json";
 import "./login.css";
+import { isNull } from "util";
+import Cookies from "universal-cookie";
+import { CalculaTiempoSesion } from "../helper/helper";
+import Loading from "../loading/loading";
+
+import logo from "../img/usuario-Login.png";
+
+const cookies = new Cookies();
+
 export default class login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: false,
       usuario: "",
       pass: "",
     };
   }
   iniciarSesion() {
-    alert(this.state.usuario);
+    this.setState({ loading: true });
+    axios
+      .post(`${host}/usuarios/login`, {
+        usuario: this.state.usuario,
+        pass: this.state.pass,
+      })
+      .then((response) => {
+        if (isNull(response.data.token)) {
+          alert("Usuario y/o contraseña invalidos");
+        } else {
+          cookies.set("_s", response.data.token, {
+            path: "/",
+            expires: CalculaTiempoSesion(),
+          });
+          this.props.history.push("/productos");
+        }
+        this.setState({ loading: false });
+      })
+      .catch((err) => {
+        console.log(err);
+        this.setState({ loading: false });
+      });
   }
   render() {
     return (
-      <Container id="login-container">
-        <Row>
+      <Container id="login-container" className="rounded">
+        <Loading show={this.state.loading} />
+        <Row className="align-items-stretch">
+          <Col
+            id="imagen-panel"
+            className="d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded"
+          >
+            <Image id="imagen-lateral" />
+          </Col>
           <Col>
-            <Image
-              src="https://i.pinimg.com/236x/f1/f5/15/f1f5153cabe32239c85842fb4d0ba3c8--ps.jpg"
-              roundedCircle
-            />
+            <img src={logo} id="imagen-login" className="rounded-circle" />
             <Row>
               <h2>Iniciar Sesion</h2>
             </Row>
@@ -28,9 +65,9 @@ export default class login extends React.Component {
               <Col
                 sm="12"
                 xs="12"
-                md={{ span: 4, offset: 4 }}
-                lg={{ span: 4, offset: 4 }}
-                xl={{ span: 4, offset: 4 }}
+                md={{ span: 8, offset: 3 }}
+                lg={{ span: 8, offset: 3 }}
+                xl={{ span: 8, offset: 3 }}
               >
                 <Form>
                   <Form.Group>
@@ -64,6 +101,8 @@ export default class login extends React.Component {
                   >
                     Iniciar sesion
                   </Button>
+                  <br />
+                  <br />
                 </Form>
               </Col>
             </Row>

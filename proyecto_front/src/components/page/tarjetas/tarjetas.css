@@ -1,0 +1,23 @@
+#tarjeta-container {
+  margin-top: 110px;
+}
+
+#tarjeta-row {
+  margin-top: 45px;
+}
+
+#imagem-tarjeta {
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin: auto;
+}
+
+h4,
+h6 {
+  float: left;
+}
+
+#boton-tarjeta {
+  float: left;
+}
