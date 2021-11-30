@@ -1,0 +1,25 @@
+#container-home {
+  margin-top: 110px;
+}
+
+#carousel-home {
+  width: 1900;
+  height: 100%;
+}
+
+#img-home {
+  width: 1300px;
+  height: 480px;
+  display: block;
+  margin: auto;
+}
+
+#color-fuente-home {
+  color: black;
+}
+#color-fuente-home1 {
+  color: white;
+}
+#margin-home-carousel {
+  margin-top: 40px;
+}

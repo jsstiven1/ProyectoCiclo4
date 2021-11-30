@@ -15,7 +15,7 @@ import Cookies from "universal-cookie/es6";
 
 const cookies = new Cookies();
 
-export default class menu extends React.Component {
+export default class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -30,7 +30,7 @@ export default class menu extends React.Component {
     return (
       <Navbar fixed="top" id="navbar" variant="dark">
         <Container variant="dark">
-          <img src={logoMenu} className="logoMenu" />
+          <img src={logoMenu} className="logo-menu" />
           <Navbar.Brand href="productos">Humsti</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Brand href="productos">inicio</Navbar.Brand>

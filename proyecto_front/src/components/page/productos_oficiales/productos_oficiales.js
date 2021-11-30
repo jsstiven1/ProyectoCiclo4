@@ -3,10 +3,12 @@ import { Row, Card, Container, Col, Button } from "react-bootstrap";
 
 import { request } from "../../helper/helper";
 import Loading from "../../loading/loading";
-import Menu from "../../navbar/navbar";
+import Menu from "../../navbar/cliente/navbarcliente";
+import Footer from "../../footer/footer";
+
 import "./tarjetas.css";
 
-export default class Tarjetas extends React.Component {
+export default class ProductosOficiales extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,7 +43,7 @@ export default class Tarjetas extends React.Component {
         <Loading show={this.state.loading} />
         <Menu />
         <Row>
-          <h1>Productos Oficiales</h1>
+          <h1 id="color-texto">Productos Oficiales</h1>
         </Row>
         <Row id="tarjeta-row" xs={1} md={2} className="g-4">
           {this.state.rows.map((producto, idx) => (
@@ -77,6 +79,9 @@ export default class Tarjetas extends React.Component {
               </Card>
             </Col>
           ))}
+        </Row>
+        <Row id="margin-home-carousel">
+          <Footer />
         </Row>
       </Container>
     );

@@ -18,6 +18,10 @@ h6 {
   float: left;
 }
 
+#color-texto {
+  color: white;
+}
+
 #boton-tarjeta {
   float: left;
 }
