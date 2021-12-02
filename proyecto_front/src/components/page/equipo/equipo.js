@@ -6,6 +6,8 @@ import Footer from "../../footer/footer";
 import "./equipo.css";
 
 import imgKeyner from "../../img/keyner.jpg";
+import imgStiven from "../../img/stiven.jpg";
+import imgWillian from "../../img/willian.jpeg";
 
 export default class Equipo extends React.Component {
   constructor(props) {
@@ -22,11 +24,7 @@ export default class Equipo extends React.Component {
         <Row>
           <CardGroup id="grupo-tarjetas">
             <Card>
-              <Card.Img
-                id="img-equipo"
-                variant="top"
-                src="holder.js/100px160"
-              />
+              <Card.Img id="img-equipo" variant="top" src={imgStiven} />
               <Card.Body>
                 <Card.Title>John Stiven Vasquez Ortega</Card.Title>
                 <Card.Text>
@@ -35,13 +33,9 @@ export default class Equipo extends React.Component {
               </Card.Body>
             </Card>
             <Card>
-              <Card.Img
-                id="img-equipo"
-                variant="top"
-                src="holder.js/100px160"
-              />
+              <Card.Img id="img-equipo" variant="top" src={imgWillian} />
               <Card.Body>
-                <Card.Title>William</Card.Title>
+                <Card.Title>Willian Humberto Sanchez Mora</Card.Title>
                 <Card.Text>
                   Desarrollador de paginas web, programador, Product Owner.
                 </Card.Text>
